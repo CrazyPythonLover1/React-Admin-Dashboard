@@ -6,7 +6,7 @@ import './assets/css/index.css';
 import Layout from './components/layout/Layout';
 import reportWebVitals from './reportWebVitals';
 
-
+document.title = 'MIF CRM'
 
 ReactDOM.render(
   <React.StrictMode>
