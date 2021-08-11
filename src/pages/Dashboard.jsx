@@ -37,6 +37,58 @@ const chartOptions = {
     }
 }
 
+const topCustomers = {
+    head: [
+        'user',
+        'total oders',
+        'total spending'
+    ],
+    body: [
+        {
+            "username": "john doe",
+            "order": "490",
+            "price": "$15,870"
+        },
+        {
+            "username": "john doe",
+            "order": "40",
+            "price": "$15,870"
+        },
+        {
+            "username": "john doe",
+            "order": "470",
+            "price": "$15,870"
+        },
+        {
+            "username": "john doe",
+            "order": "890",
+            "price": "$15,870"
+        },
+        {
+            "username": "john mitchel",
+            "order": "690",
+            "price": "$15,870"
+        },
+        {
+            "username": "john doe",
+            "order": "49",
+            "price": "$15,870"
+        }
+    ]
+}
+
+const renderCustomerHead = (item,index) => (
+    <th key={index}> {item} </th>
+)
+
+const renderCustomerBody = (item, index) => (
+    <tr key={index}>
+        <td> {item.username} </td>
+        <td> {item.order} </td>
+        <td> {item.price} </td>
+    </tr>
+)
+
 const Dashboard = () => {
     return (
         <div>
@@ -75,14 +127,30 @@ const Dashboard = () => {
                             <h3> top customers </h3>
                         </div>
                         <div className="card__body">
-                            <Table>
-                                
-                            </Table>
+                            <Table 
+                                headData={topCustomers.head}
+                                renderHead={(item,index) => renderCustomerHead(item,index)}
+                                bodyData={topCustomers.body}
+                                renderBody={(item,index) => renderCustomerBody(item, index)}
+                            />
                         </div>
                         <div className="card__footer">
                             <Link to='/'> view all </Link>
                         </div>
                         
+                    </div>
+                </div>
+                <div className="col-8">
+                    <div className="card">
+                        <div className="card__header">
+                            <h3>latest orders</h3>
+                        </div>
+                        <div className="card__body">
+                            <Table/>
+                        </div>
+                        <div className="card__footer">
+                            <Link to='/'>view all</Link>
+                        </div>
                     </div>
                 </div>
             </div>
