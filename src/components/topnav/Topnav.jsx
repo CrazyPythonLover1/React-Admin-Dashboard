@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import user_image from '../../assets/images/tuat.png';
+import user_image from '../../assets/images/mif.png';
 import notifications from '../../assets/JsonData/notification.json';
 import user_menu from '../../assets/JsonData/user_menus.json';
 import Dropdown from '../dropdown/Dropdown';
