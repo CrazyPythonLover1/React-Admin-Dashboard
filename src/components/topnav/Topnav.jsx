@@ -14,7 +14,7 @@ const curr_user = {
 }
 
 const renderNotificationItem = (item, index) => (
-    <div className="notification-item">
+    <div className="notification-item" key={index}>
         <i className={item.icon} />
         <span> {item.content} </span>
     </div>
