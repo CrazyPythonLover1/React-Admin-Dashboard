@@ -2,14 +2,16 @@ import React from 'react'
 import Chart from 'react-apexcharts'
 import { Link } from 'react-router-dom'
 import statusCard from '../assets/JsonData/status-card-data.json'
+import Badge from '../components/badge/Badge'
 import StatusCard from '../components/status-card/StatusCard'
 import Table from '../components/table/Table'
+
 
 
 const chartOptions = {
     series: [{
         name: "Online Customers",
-        data: [40,70,20,90,36,80,91,60,90,97]
+        data: [40,70,20,90,36,80,61,80,50,97]
     },{
         name: "Store Customers",
         data: [40,30,70,80,40,16,40,20,51,10]
@@ -89,6 +91,77 @@ const renderCustomerBody = (item, index) => (
     </tr>
 )
 
+
+const latestOrders = {
+    header: [
+        "order id",
+        "user",
+        "total price",
+        "data",
+        "status"
+    ],
+    body: [
+        {
+            id: "#001711",
+            user: "john doe",
+            date: "17 Jun 2021",
+            price: "$900",
+            status: "shipping"
+        },
+        {
+            id: "#001712",
+            user: "john doe",
+            date: "17 Jun 2021",
+            price: "$900",
+            status: "shipping"
+        },
+        {
+            id: "#001713",
+            user: "john doe",
+            date: "17 Jun 2021",
+            price: "$900",
+            status: "pending"
+        },
+        {
+            id: "#001714",
+            user: "john doe",
+            date: "17 Jun 2021",
+            price: "$900",
+            status: "paid"
+        },
+        {
+            id: "#001715",
+            user: "john doe",
+            date: "17 Jun 2021",
+            price: "$900",
+            status: "refund"
+        },
+    ]
+}
+
+const orderStatus = {
+    "shipping": "primary",
+    "pending": "warning",
+    "paid": "success",
+    "refund": "danger"
+}
+
+const renderOrderHead = (item, index) => (
+    <th key={index}> {item} </th>
+)
+
+const renderOrderBody = (item, index) => (
+    <tr key={index}>
+        <td>{item.id}</td>
+        <td>{item.user}</td>
+        <td>{item.price}</td>
+        <td>{item.date}</td>
+        <td>
+            <Badge type={orderStatus[item.status]} content={item.status} />
+        </td>
+    </tr>
+)
+
 const Dashboard = () => {
     return (
         <div>
@@ -146,7 +219,12 @@ const Dashboard = () => {
                             <h3>latest orders</h3>
                         </div>
                         <div className="card__body">
-                            <Table/>
+                            <Table 
+                                headData={latestOrders.header}
+                                renderHead={(item,index) => renderOrderHead(item,index)}
+                                bodyData={latestOrders.body}
+                                renderBody={(item,index) => renderOrderBody(item, index)}
+                            />
                         </div>
                         <div className="card__footer">
                             <Link to='/'>view all</Link>
