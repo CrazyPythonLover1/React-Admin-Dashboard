@@ -3,7 +3,7 @@ import customerList from '../assets/JsonData/customers-list.json'
 import Table from '../components/table/Table'
 
 const customerTableHead = [
-    '',
+    'id',
     'name',
     'email',
     'phone',
@@ -35,6 +35,7 @@ const Customers = () => {
                     <div className="card">
                         <div className="card_body">
                             <Table 
+                                limit = '10'
                                 headData={customerTableHead}
                                 renderHead={(item,index) => renderHead(item,index)}
                                 bodyData={customerList}
