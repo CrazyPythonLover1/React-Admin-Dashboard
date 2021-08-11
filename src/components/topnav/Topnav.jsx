@@ -4,6 +4,7 @@ import user_image from '../../assets/images/tuat.png';
 import notifications from '../../assets/JsonData/notification.json';
 import user_menu from '../../assets/JsonData/user_menus.json';
 import Dropdown from '../dropdown/Dropdown';
+import ThemeMenu from '../thememenu/ThemeMenu';
 import './topnav.css';
 
 
@@ -68,7 +69,7 @@ const Topnav = () => {
                 </div>
                 <div className="topnav__right-item">
                     {/*  theme setting */}
-                    <Dropdown/>
+                    <ThemeMenu/>
                 </div>
             </div>
         </div>
