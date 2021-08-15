@@ -87,6 +87,7 @@ const ThemeMenu = () => {
         setCurrMode(mode.id)
         localStorage.setItem('themeMode', mode.class)
         dispatch(ThemeAction.setMode(mode.class))
+        // { type: '', payload: "" }
     }
 
     const setColor = color => {

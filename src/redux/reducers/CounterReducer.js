@@ -1,14 +1,14 @@
-const ThemeReducer = (state = {}, action) => {
+const ThemeReducer = (state = 0, action) => {
     switch(action.type) {
         case 'SET_MODE':
             return {
                 ...state,
-                mode: action.payload // 'theme-mode-light' 
+                mode: action.payload
             }
         case 'SET_COLOR':
             return {
                 ...state,
-                color: action.payload
+                color: action.payload,
             }
         default:
             return state
